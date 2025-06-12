@@ -48,7 +48,7 @@ const treatments = [
 
 export default function Treatments() {
   return (
-    <section className="bg-green-50 py-10 px-4 sm:px-6 lg:px-12 text-gray-800">
+    <section className="bg-white py-10 px-4 sm:px-6 lg:px-12 text-gray-800">
       <motion.h2
         className="text-4xl font-bold text-center text-green-800 mb-10"
         initial={{ opacity: 0, y: -20 }}
@@ -62,16 +62,24 @@ export default function Treatments() {
         {treatments.map((t, i) => (
           <motion.div
             key={i}
-            className="bg-white border border-green-100 p-6 rounded-xl shadow hover:shadow-lg transition duration-300"
+            className="bg-white border border-gray-200 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
           >
-            <h3 className="text-2xl font-semibold text-green-700 mb-2">{t.icon} {t.name}</h3>
-            <p className="mb-2"><span className="font-semibold text-green-600">Description:</span> {t.description}</p>
-            <p className="mb-2"><span className="font-semibold text-green-600">Benefits:</span> {t.benefits}</p>
-            <p><span className="font-semibold text-green-600">Duration:</span> {t.duration}</p>
+            <h3 className="text-2xl font-semibold text-green-700 mb-2">
+              {t.icon} {t.name}
+            </h3>
+            <p className="mb-2">
+              <span className="font-semibold text-green-600">Description:</span> {t.description}
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold text-green-600">Benefits:</span> {t.benefits}
+            </p>
+            <p>
+              <span className="font-semibold text-green-600">Duration:</span> {t.duration}
+            </p>
           </motion.div>
         ))}
       </div>
