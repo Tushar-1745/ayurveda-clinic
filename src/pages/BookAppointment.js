@@ -35,13 +35,13 @@ export default function BookAppointment() {
       setErrors({});
       console.log("Submitted Data:", formData);
       alert("Appointment request submitted!");
-      // You can send `formData` to your backend here.
+      // Send formData to backend here if needed
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="p-6 max-w-md mx-auto bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold mb-4 text-green-800">Book an Appointment</h2>
+      <h2 className="text-2xl font-bold mb-4 text-green-800 text-center">Book an Appointment</h2>
 
       <div className="mb-3">
         <input
@@ -85,6 +85,9 @@ export default function BookAppointment() {
       </div>
 
       <div className="mb-3">
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Appointment Date <span className="text-gray-400">(dd/mm/yyyy)</span>
+        </label>
         <input
           name="date"
           type="date"
