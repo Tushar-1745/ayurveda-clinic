@@ -13,6 +13,8 @@ import BookAppointment from './pages/BookAppointment';
 import Treatments from './pages/Treatments';
 import HerbalProducts from './pages/HerbalProducts';
 import FAQ from './pages/FAQ';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 function App() {
   useEffect(() => {
@@ -35,7 +37,9 @@ function App() {
             <Route path="/treatments" element={<Treatments />} />
             <Route path="/book" element={<BookAppointment />} />
             <Route path="/doctors" element={<Doctors />} />
-            <Route path="/faq" element={<FAQ/>}/>
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy/>}/>
           </Routes>
         </main>
         

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const faqData = [
   {
@@ -18,52 +18,60 @@ const faqData = [
     answer: "We offer Panchakarma, detox therapies, rejuvenation packages, joint pain therapy, skin care, and more."
   },
   {
-    question: "How long does a typical session take?",
-    answer: "Sessions typically last between 30 to 90 minutes depending on the treatment type."
+    question: "Can I combine Ayurveda with modern medicine?",
+    answer: "Yes, but inform both your Ayurvedic practitioner and medical doctor to avoid interactions."
   },
   {
-    question: "Are the herbs used in treatments natural?",
-    answer: "Yes, we use 100% natural and high-quality herbs that are sourced responsibly."
-  },
-  {
-    question: "Can I take Ayurvedic treatment along with modern medicine?",
-    answer: "Yes, but it's advisable to consult both your Ayurvedic and allopathic doctor for a safe combined approach."
-  },
-  {
-    question: "Is your clinic open on weekends?",
-    answer: "Yes, our clinic operates 7 days a week, though appointments are preferred on weekends due to higher footfall."
-  },
-  {
-    question: "Do you provide diet plans?",
-    answer: "Yes, our doctors provide customized diet and lifestyle plans as part of the treatment."
+    question: "Are the herbs used safe and natural?",
+    answer: "Yes, we use certified and natural herbs sourced from trusted suppliers."
   }
 ];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [visibleIndexes, setVisibleIndexes] = useState([]);
+
+  useEffect(() => {
+    let delay = 0;
+    faqData.forEach((_, i) => {
+      setTimeout(() => {
+        setVisibleIndexes(prev => [...prev, i]);
+      }, delay);
+      delay += 200; // Stagger each by 200ms
+    });
+  }, []);
 
   const toggle = index => {
     setOpenIndex(prev => (prev === index ? null : index));
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h2 className="text-3xl font-bold text-center text-green-800 mb-8">Frequently Asked Questions</h2>
-      <div className="space-y-4">
+    <div className="max-w-4xl mx-auto p-6">
+      <h2 className="text-4xl font-bold text-center text-green-800 mb-10 animate-fadeIn">Frequently Asked Questions</h2>
+      <div className="space-y-5">
         {faqData.map((faq, index) => (
-          <div key={index} className="border border-gray-300 rounded-lg">
+          <div
+            key={index}
+            className={`transform transition duration-700 ease-in-out ${
+              visibleIndexes.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            } border-l-4 border-green-600 bg-green-50 shadow-md rounded-md overflow-hidden`}
+          >
             <button
               onClick={() => toggle(index)}
-              className="w-full text-left px-4 py-3 flex justify-between items-center bg-green-100 hover:bg-green-200 transition"
+              className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-green-100 transition-colors duration-700"
             >
-              <span className="font-medium">{faq.question}</span>
-              <span className="text-xl">{openIndex === index ? '-' : '+'}</span>
+              <span className="text-lg font-semibold text-green-900">{faq.question}</span>
+              <span className={`transition-transform duration-500 text-2xl text-green-700 ${openIndex === index ? 'rotate-45' : ''}`}>
+                +
+              </span>
             </button>
-            {openIndex === index && (
-              <div className="px-4 py-3 text-gray-700 bg-white">
-                {faq.answer}
-              </div>
-            )}
+            <div
+              className={`px-6 text-gray-700 transition-all duration-700 ease-in-out ${
+                openIndex === index ? 'max-h-40 py-2 opacity-100' : 'max-h-0 py-0 opacity-0'
+              } overflow-hidden`}
+            >
+              {faq.answer}
+            </div>
           </div>
         ))}
       </div>
