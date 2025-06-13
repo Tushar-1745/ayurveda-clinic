@@ -20,6 +20,22 @@ const faqData = [
   {
     question: "How long does a typical session take?",
     answer: "Sessions typically last between 30 to 90 minutes depending on the treatment type."
+  },
+  {
+    question: "Are the herbs used in treatments natural?",
+    answer: "Yes, we use 100% natural and high-quality herbs that are sourced responsibly."
+  },
+  {
+    question: "Can I take Ayurvedic treatment along with modern medicine?",
+    answer: "Yes, but it's advisable to consult both your Ayurvedic and allopathic doctor for a safe combined approach."
+  },
+  {
+    question: "Is your clinic open on weekends?",
+    answer: "Yes, our clinic operates 7 days a week, though appointments are preferred on weekends due to higher footfall."
+  },
+  {
+    question: "Do you provide diet plans?",
+    answer: "Yes, our doctors provide customized diet and lifestyle plans as part of the treatment."
   }
 ];
 
