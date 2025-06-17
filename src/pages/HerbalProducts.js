@@ -3,16 +3,16 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const products = [
-  { name: "Herbal Detox Tea", description: "Aids digestion and detoxification.", image: "https://source.unsplash.com/featured/?herbal,tea", category: "Tea" },
-  { name: "Ayurvedic Massage Oil", description: "Relieves joint pain and enhances relaxation.", image: "https://source.unsplash.com/featured/?massage,oil", category: "Oil" },
-  { name: "Ashwagandha Capsules", description: "Boosts energy and reduces stress.", image: "https://source.unsplash.com/featured/?ashwagandha", category: "Capsule" },
-  { name: "Neem Face Pack", description: "Purifies skin and prevents acne.", image: "https://source.unsplash.com/featured/?neem", category: "Skincare" },
-  { name: "Triphala Powder", description: "Improves digestion and cleanses the system.", image: "https://source.unsplash.com/featured/?triphala", category: "Powder" },
-  { name: "Brahmi Syrup", description: "Enhances brain function and memory.", image: "https://source.unsplash.com/featured/?brahmi", category: "Syrup" },
-  { name: "Turmeric Capsules", description: "Natural anti-inflammatory and antioxidant.", image: "https://source.unsplash.com/featured/?turmeric", category: "Capsule" },
-  { name: "Kumkumadi Oil", description: "For radiant, youthful skin.", image: "https://source.unsplash.com/featured/?kumkumadi", category: "Oil" },
-  { name: "Herbal Hair Oil", description: "Prevents hair fall and promotes hair growth.", image: "https://source.unsplash.com/featured/?herbal,hair", category: "Oil" },
-  { name: "Ginger-Tulsi Tea", description: "Immunity boosting herbal tea.", image: "https://source.unsplash.com/featured/?ginger,tulsi", category: "Tea" }
+  { name: "Herbal Detox Tea", description: "Aids digestion and detoxification.", image: "/images/herbal_detox_tea.jpg", category: "Tea" },
+  { name: "Ayurvedic Massage Oil", description: "Relieves joint pain and enhances relaxation.", image: "/images/ayurvedic_massage_oil.jpg", category: "Oil" },
+  { name: "Ashwagandha Capsules", description: "Boosts energy and reduces stress.", image: "/images/ashwagandha_capsules.jpg", category: "Capsule" },
+  { name: "Neem Face Pack", description: "Purifies skin and prevents acne.", image: "/images/neem_face_pack.webp", category: "Skincare" },
+  { name: "Triphala Powder", description: "Improves digestion and cleanses the system.", image: "/images/triphala_powder.jpg", category: "Powder" },
+  { name: "Brahmi Syrup", description: "Enhances brain function and memory.", image: "/images/brahmi_syrup.avif", category: "Syrup" },
+  { name: "Turmeric Capsules", description: "Natural anti-inflammatory and antioxidant.", image: "/images/turmeric_capsules.jpg", category: "Capsule" },
+  { name: "Kumkumadi Oil", description: "For radiant, youthful skin.", image: "/images/kumkumadi_oil.webp", category: "Oil" },
+  { name: "Herbal Hair Oil", description: "Prevents hair fall and promotes hair growth.", image: "/images/herbal_hair_oil.webp", category: "Oil" },
+  { name: "Ginger-Tulsi Tea", description: "Immunity boosting herbal tea.", image: "/images/ginger_tulsi_tea.jpg", category: "Tea" }
 ];
 
 export default function HerbalProducts() {
@@ -68,10 +68,11 @@ export default function HerbalProducts() {
               data-aos-delay={index * 50}
             >
               <img
-                src={p.image}
-                alt={p.name}
-                className="w-full h-44 object-cover"
-              />
+  src={p.image}
+  alt={p.name}
+  className="w-full h-44 object-contain p-2 bg-white"
+/>
+
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-green-700">{p.name}</h3>
                 <p className="text-gray-700 text-sm mt-1">{p.description}</p>
